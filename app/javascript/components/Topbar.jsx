@@ -21,7 +21,7 @@ const Topbar = () => {
     <Navbar maxWidth="full">
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
-          <h1 style={{ fontSize: "1.6rem", fontWeight: "bolder" }}>XYZASDLAKjd</h1>
+          <h1 style={{ fontSize: "1.6rem", fontWeight: "bolder" }}>XYZASDLKJ</h1>
         </NavbarBrand>
         <Input
           style={{ borderWidth: "0 !important" }}

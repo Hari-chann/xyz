@@ -53202,7 +53202,7 @@ var search_default = Search;
 
 // app/javascript/components/Topbar.jsx
 var Topbar = () => {
-  return /* @__PURE__ */ import_react96.default.createElement(navbar_default, { maxWidth: "full" }, /* @__PURE__ */ import_react96.default.createElement(navbar_content_default, { justify: "start" }, /* @__PURE__ */ import_react96.default.createElement(navbar_brand_default, { className: "mr-4" }, /* @__PURE__ */ import_react96.default.createElement("h1", { style: { fontSize: "1.6rem", fontWeight: "bolder" } }, "XYZASDLAKjd")), /* @__PURE__ */ import_react96.default.createElement(
+  return /* @__PURE__ */ import_react96.default.createElement(navbar_default, { maxWidth: "full" }, /* @__PURE__ */ import_react96.default.createElement(navbar_content_default, { justify: "start" }, /* @__PURE__ */ import_react96.default.createElement(navbar_brand_default, { className: "mr-4" }, /* @__PURE__ */ import_react96.default.createElement("h1", { style: { fontSize: "1.6rem", fontWeight: "bolder" } }, "XYZASDLKJ")), /* @__PURE__ */ import_react96.default.createElement(
     input_default,
     {
       style: { borderWidth: "0 !important" },
@@ -53225,7 +53225,9 @@ var Topbar_default = Topbar;
 
 // app/javascript/pages/LandingPage.jsx
 var LandingPage = () => {
-  return /* @__PURE__ */ import_react98.default.createElement(import_react98.default.Fragment, null, /* @__PURE__ */ import_react98.default.createElement("div", { className: "gradient-background" }, /* @__PURE__ */ import_react98.default.createElement("p", { style: { color: "black" } }, "Save up to $500 per year on millions of book titles!")), /* @__PURE__ */ import_react98.default.createElement(Topbar_default, null));
+  return /* @__PURE__ */ import_react98.default.createElement(import_react98.default.Fragment, null, /* @__PURE__ */ import_react98.default.createElement("div", { className: "gradient-background", style: {
+    backgroundImage: "url('https://ik.imagekit.io/hj8dhpyuyh1/Mask-Group_4_PWM-Hi8Le.png?updatedAt=1727597492061')"
+  } }, /* @__PURE__ */ import_react98.default.createElement("p", { style: { color: "black" } }, "Save up to $500 per year on millions of book titles!")), /* @__PURE__ */ import_react98.default.createElement(Topbar_default, null));
 };
 var LandingPage_default = LandingPage;
 
