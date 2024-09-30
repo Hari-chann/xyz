@@ -14,7 +14,13 @@ header {
   padding-right: 5.5rem !important;
 }
 
-/*********** LadningPage.jsx *********** */
+.topbar-links {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: large;
+}
+
+/*********** LandingPage.jsx *********** */
 
 .gradient-background {
   background-image: url("/images/savebanner.png");
@@ -31,7 +37,7 @@ header {
   font-size: 0.9rem;
 }
 
-/*********** LadningPage.jsx *********** */
+/*********** LandingPage.jsx *********** */
 
 /*********** Topbar.jsx *********** */
 
@@ -46,8 +52,13 @@ header {
   border-width: 0.1rem !important;
 }
 
-/*********** Topbar.jsx *********** */
+.backdrop-blur-fix {
+  backdrop-filter: blur(2px) !important;
+  z-index: 90;
+  margin-top: 5rem;
+}
 
+/*********** Topbar.jsx *********** */
 
 @media screen and (max-width: 1450px) {
   .search-input {
@@ -55,11 +66,12 @@ header {
     margin-right: 0;
   }
 }
-
+/*
 @media screen and (max-width: 1220px) {
   .md-show {
   }
 }
+*/
 
 @media screen and (max-width: 1240px) {
   header {
@@ -73,7 +85,3 @@ header {
     display: flex !important;
   }
 }
-
-
-
-

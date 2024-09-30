@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
   Link,
   Input,
   DropdownItem,
@@ -17,17 +20,46 @@ import {
 import { Search, Globe } from "react-feather";
 
 const Topbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = [
+    "Home",
+    "Rent Textbooks",
+    "Buy Textbooks",
+    "Sell Textbooks",
+  ];
+
+  const navbarMenu = () => {
+    return (
+      <NavbarMenu>
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link className="w-full" color="foreground" href="#" size="lg">
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    );
+  };
+
   return (
-    <Navbar maxWidth="full">
-      <NavbarContent justify="start">
-        <NavbarItem>
-          <NavbarBrand className="mr-4">
-            <img
-              src="/images/sample-logo.svg"
-              style={{ minWidth: "7.5rem", height: "auto" }}
-            />
-          </NavbarBrand>
-        </NavbarItem>
+    <Navbar
+      maxWidth="full"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      <NavbarContent justify="start" className="sm:hidden">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="hidden md-show"
+        />
+        <NavbarBrand className="mr-4">
+          <img
+            src="/images/sample-logo.svg"
+            style={{ minWidth: "7.5rem", height: "auto" }}
+          />
+        </NavbarBrand>
         <NavbarItem>
           <Input
             style={{ borderWidth: "0 !important" }}
@@ -59,25 +91,44 @@ const Topbar = () => {
           style={{ gap: "2rem" }}
         >
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link className="topbar-links" color="foreground" href="#">
               Home
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#" aria-current="page">
+            <Link className="topbar-links" color="foreground" href="#">
               Rent Textbooks
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link className="topbar-links" color="foreground" href="#">
               Buy Textbooks
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
+            <Link className="topbar-links" color="foreground" href="#">
               Sell Textbooks
             </Link>
           </NavbarItem>
+          <Divider
+            orientation="vertical"
+            style={{
+              marginLeft: "-1rem",
+              marginRight: "-1rem",
+              height: "2rem",
+            }}
+          />
+          <NavbarContent style={{ gap: "0.4rem" }}>
+            <NavbarItem>
+              <img
+                src="/images/Icon feather-globe.svg"
+                style={{ minWidth: "1rem" }}
+              />
+            </NavbarItem>
+            <NavbarItem>
+              <p>En</p>
+            </NavbarItem>
+          </NavbarContent>
           <NavbarContent></NavbarContent>
         </NavbarContent>
         <NavbarContent className="hidden">
@@ -91,10 +142,10 @@ const Topbar = () => {
             <p>En</p>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent justify="end">
           <NavbarContent
             justify="end"
-            className=""
+            className="hidden"
             style={{ gap: "0.4rem" }}
           >
             <NavbarItem>
@@ -112,6 +163,16 @@ const Topbar = () => {
           </Button>
         </NavbarContent>
       </NavbarContent>
+
+      <NavbarMenu className="backdrop-blur-fix">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link className="w-full" color="foreground" href="#" size="lg">
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 };
