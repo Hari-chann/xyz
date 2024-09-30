@@ -17,10 +17,18 @@ import {
 const LandingPage = () => {
   return (
     <>
-      <div className="gradient-background" style={{
-        backgroundImage: "url('https://ik.imagekit.io/hj8dhpyuyh1/Mask-Group_4_PWM-Hi8Le.png?updatedAt=1727597492061')"
-      }}>
-        <p style={{color: "black"}}>Save up to $500 per year on millions of book titles!</p>
+      <div className="gradient-background">
+        <img src="/images/26.svg" style={{ transform: "rotateY(180deg)" }} />
+        <p
+          style={{
+            marginTop: "0.5rem",
+            marginLeft: "0.8rem",
+            marginRight: "0.8rem",
+          }}
+        >
+          Save up to $500 per year on millions of book titles!
+        </p>
+        <img src="/images/26.svg" />
       </div>
       <Topbar />
     </>
