@@ -1,18 +1,6 @@
 import React from "react";
 import Topbar from "../components/Topbar";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Input,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
-  Avatar,
-} from "@nextui-org/react";
+import MainAbout from "../components/MainAbout";
 
 const LandingPage = () => {
   return (
@@ -31,6 +19,7 @@ const LandingPage = () => {
         <img src="/images/26.svg" />
       </div>
       <Topbar />
+      <MainAbout />
     </>
   );
 };

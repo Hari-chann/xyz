@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-}
-
 img {
   height: auto;
 }
@@ -60,6 +57,20 @@ header {
 }
 
 /*********** Topbar.jsx *********** */
+
+/*********** MainAbout.jsx *********** */
+
+.main-about-bg {
+  background-image: url("/images/main-about-bg.png");
+  /*
+    set temporarily to 250vh to show the background image
+  */
+  height: 250vh;
+  background-size: cover;
+  background-position-x: center;
+}
+
+/*********** MainAbout.jsx *********** */
 
 @media screen and (max-width: 1560px) {
   .search-input {

@@ -9,10 +9,6 @@ import {
   NavbarMenuToggle,
   Link,
   Input,
-  DropdownItem,
-  DropdownTrigger,
-  Dropdown,
-  DropdownMenu,
   Button,
   Divider,
 } from "@nextui-org/react";
