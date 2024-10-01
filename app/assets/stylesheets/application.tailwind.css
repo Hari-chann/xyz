@@ -7,8 +7,7 @@ img {
 }
 
 header {
-  padding-left: 5.5rem !important;
-  padding-right: 5.5rem !important;
+  padding-inline: 5.5rem !important;
 }
 
 .topbar-links {
@@ -41,8 +40,7 @@ header {
 
 .search-input {
   min-width: 16rem !important;
-  margin-left: 7rem;
-  margin-right: 7rem;
+  margin-inline: 7rem;
 }
 
 .search-input-border-color {
@@ -62,33 +60,50 @@ header {
 
 .main-about-bg {
   background-image: url("/images/main-about-bg.png");
-  /*
-    set temporarily to 250vh to show the background image
-  */
+  /* set temporarily to 250vh to show the background image */
   height: 250vh;
   background-size: cover;
   background-position-x: center;
+  /* set temporarily to 23rem to show the background image */
+  background-position-y: -23rem;
+  padding-inline: 5.5rem;
+  padding-block: 7rem;
+  display: flex !important;
+}
+
+.hero-style {
+  width: 40vw;
+  height: fit-content !important;
+  margin-inline: 6rem !important;
+}
+
+.inline-stack {
+  display: inline-block;
+  margin-inline: 1rem;
+}
+
+.hero-text {
+  font-weight: 700;
+  line-height: 5rem;
+}
+
+.greater-than-img {
+  transform: rotate(270deg);
+  height: auto;
+  width: 0.7rem !important;
 }
 
 /*********** MainAbout.jsx *********** */
 
 @media screen and (max-width: 1560px) {
   .search-input {
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline: 0;
   }
 }
-/*
-@media screen and (max-width: 1220px) {
-  .md-show {
-  }
-}
-*/
 
 @media screen and (max-width: 1340px) {
   header {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
+    padding-inline: 2rem !important;
   }
   .md-hidden {
     display: none;
