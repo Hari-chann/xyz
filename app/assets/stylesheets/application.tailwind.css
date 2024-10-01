@@ -25,6 +25,7 @@ header {
 .gradient-background {
   background-image: url("/images/savebanner.png");
   background-size: cover;
+  background-position-x: center;
   height: 3rem;
   display: flex;
   align-items: center;
