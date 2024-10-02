@@ -75,7 +75,7 @@ header {
   background-size: cover;
   background-position-x: center;
   /* set temporarily to 23rem to show the background image */
-  background-position-y: -3rem;
+  background-position-y: -5rem;
   padding-inline: 5.5rem;
   padding-block: 4rem;
 }
@@ -131,6 +131,30 @@ header {
 }
 
 /*********** MainAbout.jsx *********** */
+
+/*********** ExploreSection.jsx *********** */
+
+#explore-bg-section-top-half {
+  background: linear-gradient(176deg, white 70%, #002855 30%);
+  width: auto;
+  padding-top: 6.5rem;
+}
+
+.book-title {
+  text-align: center;
+  line-height: 2rem !important;
+  font-weight: 700;
+  font-size: 1.6rem !important;
+  margin-block: 1.2rem;
+  color: white;
+}
+
+.book-detail-link {
+  text-align: center;
+  color: #53bde3;
+}
+
+/*********** ExploreSection.jsx *********** */
 
 @media screen and (max-width: 1560px) {
   .search-input {
