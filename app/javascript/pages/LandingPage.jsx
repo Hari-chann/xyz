@@ -3,6 +3,7 @@ import Topbar from "../components/Topbar";
 import MainAbout from "../components/MainAbout";
 import ExploreTopSection from "../components/ExploreTopSection";
 import ExploreBottomSection from "../components/ExploreBottomSection";
+import Profile from "../components/Profile";
 
 const LandingPage = () => {
   return (
@@ -25,6 +26,7 @@ const LandingPage = () => {
       <MainAbout />
       <ExploreTopSection />
       <ExploreBottomSection />
+      <Profile />
     </>
   );
 };

@@ -176,6 +176,25 @@ header {
 
 /*********** ExploreBottomSection.jsx *********** */
 
+/*********** Profile.jsx *********** */
+
+#profile-name {
+  font-weight: 700;
+  font-size: 1.4rem !important;
+  color: #151c55;
+  text-align: center;
+}
+
+#profile-title {
+  font-weight: 700;
+  font-size: 1rem !important;
+  color: #83dcfc;
+  text-align: center;
+  line-height: 2rem;
+}
+
+/*********** Profile.jsx *********** */
+
 @media screen and (max-width: 1560px) {
   .search-input {
     margin-inline: 0;
@@ -208,7 +227,8 @@ header {
     gap: 3.5rem;
   }
   #explore-bg-section-bottom-half {
-    padding-bottom: 20rem;
+    background: linear-gradient(176deg, #002855 90%, white 10%);
+    padding-bottom: 12rem;
   }
 }
 
