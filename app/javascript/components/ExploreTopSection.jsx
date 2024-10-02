@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Link } from "@nextui-org/react";
 
-const ExploreSection = () => {
+const ExploreTopSection = () => {
   const bookList = [
     { name: "Doughnuts and Doom", img: "/images/doughnuts & Doom.png" },
     { name: "The bend of luck", img: "/images/The Bend of Luck.png" },
@@ -73,4 +73,5 @@ const ExploreSection = () => {
   );
 };
 
-export default ExploreSection;
+export default ExploreTopSection;
+

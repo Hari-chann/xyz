@@ -132,12 +132,12 @@ header {
 
 /*********** MainAbout.jsx *********** */
 
-/*********** ExploreSection.jsx *********** */
+/*********** ExploreTopSection.jsx *********** */
 
 #explore-bg-section-top-half {
-  background: linear-gradient(176deg, white 70%, #002855 30%);
+  background: linear-gradient(176deg, white 65%, #002855 35%);
   width: auto;
-  padding-top: 6.5rem;
+  padding-top: 5rem;
 }
 
 .book-title {
@@ -154,7 +154,27 @@ header {
   color: #53bde3;
 }
 
-/*********** ExploreSection.jsx *********** */
+/*********** ExploreTopSection.jsx *********** */
+
+/*********** ExploreBottomSection.jsx *********** */
+
+#explore-bg-section-bottom-half {
+  background: linear-gradient(176deg, #002855 80%, white 20%);
+  width: auto;
+  padding-top: 4.5rem;
+  padding-bottom: 15rem;
+  padding-inline: 5.5rem;
+}
+
+.reason-label {
+  line-height: 1.5rem !important;
+  font-weight: 700;
+  font-size: 1.4rem !important;
+  margin-block: 1.4rem;
+  color: white;
+}
+
+/*********** ExploreBottomSection.jsx *********** */
 
 @media screen and (max-width: 1560px) {
   .search-input {
@@ -179,6 +199,16 @@ header {
   }
   #commitment-p {
     color: unset !important;
+  }
+}
+
+@media screen and (max-width: 1035px) {
+  #reason-list {
+    flex-wrap: wrap;
+    gap: 3.5rem;
+  }
+  #explore-bg-section-bottom-half {
+    padding-bottom: 20rem;
   }
 }
 

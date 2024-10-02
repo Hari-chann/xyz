@@ -1,7 +1,8 @@
 import React from "react";
 import Topbar from "../components/Topbar";
 import MainAbout from "../components/MainAbout";
-import ExploreSection from "../components/ExploreSection";
+import ExploreTopSection from "../components/ExploreTopSection";
+import ExploreBottomSection from "../components/ExploreBottomSection";
 
 const LandingPage = () => {
   return (
@@ -22,7 +23,8 @@ const LandingPage = () => {
       </div>
       <Topbar />
       <MainAbout />
-      <ExploreSection/>
+      <ExploreTopSection />
+      <ExploreBottomSection />
     </>
   );
 };
