@@ -154,13 +154,18 @@ const Topbar = () => {
               <p>En</p>
             </NavbarItem>
           </NavbarContent>
-          <Button size="lg" color="primary" variant="shadow">
+          <Button
+            size="lg"
+            color="primary"
+            variant="shadow"
+            style={{ padding: "1rem 2rem" }}
+          >
             Contact
           </Button>
         </NavbarContent>
       </NavbarContent>
 
-      <NavbarMenu className="backdrop-blur-fix">
+      <NavbarMenu id="backdrop-blur-fix">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link className="w-full" color="foreground" href="#" size="lg">

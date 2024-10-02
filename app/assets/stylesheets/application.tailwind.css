@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+p {
+  font-family: "olyford-semibold";
+}
+
 img {
   height: auto;
 }
@@ -14,18 +18,26 @@ header {
   font-weight: 500;
   letter-spacing: 1px;
   font-size: large;
+  word-spacing: 0.2rem;
+}
+
+@font-face {
+  font-family: "olyford-semibold";
+  src:
+    url("/fonts/olyford-semibold-webfont.woff2") format("woff2"),
+    url("/fonts/olyford-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*********** LandingPage.jsx *********** */
 
-.gradient-background {
+#gradient-background {
   background-image: url("/images/savebanner.png");
   background-size: cover;
   background-position-x: center;
   height: 3rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
   font-weight: bold;
   position: relative;
@@ -48,7 +60,7 @@ header {
   border-width: 0.1rem !important;
 }
 
-.backdrop-blur-fix {
+#backdrop-blur-fix {
   backdrop-filter: blur(2px) !important;
   z-index: 90;
   margin-top: 5rem;
@@ -58,27 +70,31 @@ header {
 
 /*********** MainAbout.jsx *********** */
 
-.main-about-bg {
+#main-about-bg {
   background-image: url("/images/main-about-bg.png");
-  /* set temporarily to 250vh to show the background image */
-  height: 250vh;
   background-size: cover;
   background-position-x: center;
   /* set temporarily to 23rem to show the background image */
-  background-position-y: -23rem;
+  background-position-y: -3rem;
   padding-inline: 5.5rem;
-  padding-block: 7rem;
-  display: flex !important;
+  padding-block: 4rem;
+  height: 3rem;
 }
 
-.hero-style {
+.img-hero-style {
   width: 40vw;
   height: fit-content !important;
   margin-inline: 6rem !important;
 }
 
+#get-started-btn {
+  margin-top: 2rem;
+  padding: "1.5rem 2.5rem";
+  font-size: 1.2rem !important;
+}
+
 .inline-stack {
-  display: inline-block;
+  display: flex;
   margin-inline: 1rem;
 }
 
@@ -91,6 +107,22 @@ header {
   transform: rotate(270deg);
   height: auto;
   width: 0.7rem !important;
+}
+
+.h4-hero-text {
+  font-size: 2.6rem;
+  color: white;
+}
+
+#commitment-p {
+  font-size: 1.1rem;
+  line-height: 1.8rem;
+  color: white;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
 }
 
 /*********** MainAbout.jsx *********** */
@@ -110,5 +142,12 @@ header {
   }
   .md-show {
     display: flex !important;
+  }
+  .h4-hero-text {
+    /* color: #6160f6 !important; */
+    color: #151c55 !important;
+  }
+  #commitment-p {
+    color: unset !important;
   }
 }
