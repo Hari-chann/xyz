@@ -78,7 +78,6 @@ header {
   background-position-y: -3rem;
   padding-inline: 5.5rem;
   padding-block: 4rem;
-  height: 3rem;
 }
 
 .img-hero-style {
@@ -90,7 +89,7 @@ header {
 #get-started-btn {
   margin-top: 2rem;
   padding: "1.5rem 2.5rem";
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
 }
 
 .inline-stack {
@@ -112,6 +111,12 @@ header {
 .h4-hero-text {
   font-size: 2.6rem;
   color: white;
+}
+
+#client-text {
+  font-size: 2.6rem;
+  color: #f6c644;
+  margin-left: 0.8rem;
 }
 
 #commitment-p {
@@ -143,11 +148,21 @@ header {
   .md-show {
     display: flex !important;
   }
+  /* sdflkj
+  */
   .h4-hero-text {
-    /* color: #6160f6 !important; */
     color: #151c55 !important;
   }
   #commitment-p {
     color: unset !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #trusted-h4 {
+    font-size: 4vw;
+  }
+  .clients-h4 {
+    font-size: 3vw !important;
   }
 }

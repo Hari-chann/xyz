@@ -2,6 +2,15 @@ import React from "react";
 import { Button } from "@nextui-org/react";
 
 const MainAbout = () => {
+  const clientList = [
+    { name: "Binance", img: "binance.svg" },
+    { name: "Bitcoin", img: "bitcoin.svg" },
+    { name: "Solana", img: "solana.svg" },
+    { name: "Ethereum", img: "ethereum.svg" },
+    { name: "Tether", img: "tether.svg" },
+    { name: "XRP", img: "xrp.svg" },
+  ];
+
   return (
     <div id="main-about-bg">
       {/* Cheapest Textbooks section */}
@@ -85,22 +94,41 @@ const MainAbout = () => {
       </div>
       <div style={{ marginBlock: "3rem" }}>
         <div className="inline-stack flex-center">
-          <h4 className="hero-text h4-hero-text hidden md-show">
+          <h4 id="trusted-h4" className="hero-text h4-hero-text hidden md-show">
             Trusted by awesome clients
           </h4>
           <h4 className="hero-text h4-hero-text md-hidden">
             Trusted by awesome
           </h4>
-          <h4
-            className="hero-text md-hidden"
-            style={{
-              fontSize: "2.6rem",
-              color: "#f6c644",
-              marginLeft: "0.8rem",
-            }}
-          >
+          <h4 id="client-text" className="hero-text md-hidden">
             clients
           </h4>
+        </div>
+        <div
+          className="inline-stack flex-center"
+          style={{ marginTop: "1rem", marginBottom: "4rem", flexWrap: "wrap" }}
+        >
+          {clientList.map((client, index) => {
+            return (
+              <div
+                key={index}
+                className="inline-stack"
+                style={{ marginInline: "1rem" }}
+              >
+                <img src={`/images/${client.img}`} />
+                <h4
+                  className="hero-text clients-h4"
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "white",
+                    marginInline: "1rem",
+                  }}
+                >
+                  {client.name}
+                </h4>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
