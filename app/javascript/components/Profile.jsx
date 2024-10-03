@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, Avatar, Button } from "@nextui-org/react";
 
 const Profile = () => {
   return (
-    <div style={{ paddingTop: "3rem", paddingBottom: "20rem" }}>
+    <div style={{ paddingTop: "3rem", paddingBottom: "9rem" }}>
       <h4 id="profile-name">Andrew Santellan</h4>
       <h4 id="profile-title">Product Manager, Binance</h4>
       <div className="inline-stack flex-center">

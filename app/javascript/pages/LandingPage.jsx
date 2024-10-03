@@ -4,6 +4,7 @@ import MainAbout from "../components/MainAbout";
 import ExploreTopSection from "../components/ExploreTopSection";
 import ExploreBottomSection from "../components/ExploreBottomSection";
 import Profile from "../components/Profile";
+import FAQ from "../components/FAQ";
 
 const LandingPage = () => {
   return (
@@ -27,6 +28,7 @@ const LandingPage = () => {
       <ExploreTopSection />
       <ExploreBottomSection />
       <Profile />
+      <FAQ />
     </>
   );
 };

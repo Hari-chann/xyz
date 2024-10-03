@@ -236,6 +236,23 @@ header {
 
 /*********** Profile.jsx *********** */
 
+/*********** FAQ section.jsx *********** */
+
+#main-faq-div {
+  background-color: #f2f5f8;
+  display: grid;
+  padding-block: 6rem;
+}
+
+.accordion-item h2 button div span {
+  color: #6b6bf4;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/*********** FAQ section.jsx *********** */
+
+
 @media screen and (max-width: 1560px) {
   .search-input {
     margin-inline: 0;
@@ -252,8 +269,6 @@ header {
   .md-show {
     display: flex !important;
   }
-  /* sdflkj
-  */
   .h4-hero-text {
     color: #151c55 !important;
   }
