@@ -30,6 +30,10 @@ header {
   font-style: normal;
 }
 
+.flex {
+  display: flex;
+}
+
 /*********** LandingPage.jsx *********** */
 
 #gradient-background {
@@ -180,17 +184,54 @@ header {
 
 #profile-name {
   font-weight: 700;
-  font-size: 1.4rem !important;
+  font-size: 1.7rem !important;
   color: #151c55;
   text-align: center;
 }
 
 #profile-title {
   font-weight: 700;
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
   color: #83dcfc;
   text-align: center;
   line-height: 2rem;
+}
+
+#card-style {
+  width: 50vw;
+  background-color: #4299f7;
+  overflow: visible;
+  padding-block: 2rem;
+  padding-inline: 3rem;
+}
+
+.rounded-t-large {
+  justify-content: center;
+}
+
+.gap-5 {
+  margin-top: -5.5rem !important;
+  width: 6rem;
+  height: auto;
+}
+
+.object-cover {
+  width: 6rem;
+  height: auto;
+}
+
+.ring-offset-background {
+  --tw-ring-offset-color: #4299f7 !important;
+}
+
+.ring-default {
+  --tw-ring-color: hsl(211.16deg 91.88% 61.37%) !important;
+  width: 6rem;
+  height: auto;
+}
+
+.ring-offset-2 {
+  --tw-ring-offset-width: 0px !important;
 }
 
 /*********** Profile.jsx *********** */
