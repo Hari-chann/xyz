@@ -252,6 +252,64 @@ header {
 
 /*********** FAQ section.jsx *********** */
 
+/*********** Footer.jsx *********** */
+
+.h4-footer {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+#send-btn {
+  font-size: 1.5rem;
+  padding: unset !important;
+  min-width: 2.5rem !important;
+  width: 2.5rem !important;
+  margin-right: -1rem;
+}
+
+#chat-avatar {
+  grid-column: 6;
+  width: 7rem;
+  margin: unset;
+  align-items: end !important;
+}
+
+#chat-avatar span {
+  height: 5rem;
+  width: 5rem;
+}
+
+#chat-avatar span img {
+  height: auto;
+  width: 3rem;
+}
+
+#media-stack span {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+#media-stack span img {
+  width: 1.2rem;
+  height: auto;
+}
+
+#fb-div span {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+#fb-div span img {
+  width: 0.8rem;
+  height: auto;
+}
+
+#grid-link-stack {
+  gap: 7vw;
+  display: grid;
+}
+
+/*********** Footer.jsx *********** */
 
 @media screen and (max-width: 1560px) {
   .search-input {
@@ -264,7 +322,7 @@ header {
     padding-inline: 2rem !important;
   }
   .md-hidden {
-    display: none;
+    display: none !important;
   }
   .md-show {
     display: flex !important;
@@ -274,6 +332,9 @@ header {
   }
   #commitment-p {
     color: unset !important;
+  }
+  #grid-link-stack {
+    gap: 2.5vw;
   }
 }
 

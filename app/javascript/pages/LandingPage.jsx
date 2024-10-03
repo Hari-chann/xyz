@@ -5,6 +5,7 @@ import ExploreTopSection from "../components/ExploreTopSection";
 import ExploreBottomSection from "../components/ExploreBottomSection";
 import Profile from "../components/Profile";
 import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
@@ -29,6 +30,7 @@ const LandingPage = () => {
       <ExploreBottomSection />
       <Profile />
       <FAQ />
+      <Footer />
     </>
   );
 };
