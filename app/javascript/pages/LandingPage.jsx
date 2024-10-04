@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 import Topbar from "../components/Topbar";
 import MainAbout from "../components/MainAbout";
 import ExploreTopSection from "../components/ExploreTopSection";
