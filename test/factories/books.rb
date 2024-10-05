@@ -2,7 +2,7 @@
 FactoryBot.define do
   factory :book do
     title { Faker::Book.title }
-    isbn_13 { Faker::Code.isbn }
+    isbn_13 { Faker::Code.isbn(base:13) }
     isbn_10 { Faker::Code.isbn }
     price { Faker::Number.decimal(l_digits: 3, r_digits: 2) }
     publication_year { Faker::Number.between(from: 1800, to: Time.now.year) }
