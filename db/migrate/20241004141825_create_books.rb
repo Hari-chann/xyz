@@ -8,7 +8,6 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.integer :publication_year, null: false
       t.string :edition
       t.string :image_url
-      t.text :description
       t.references :publisher, null: false, foreign_key: true
 
       t.timestamps

@@ -3,12 +3,12 @@ class Book < ApplicationRecord
   has_many :book_authors
   has_many :authors, through: :book_authors
 
-  validates :title, :isbn_13, :price, :publication_year, presence: true
+  validates :authors, :title, :isbn_13, :price, :publication_year, presence: true
   before_save :validate_isbn_13
   before_save :validate_isbn_10, if: -> { isbn_10.present? }
 
-  def is_isbn_13_valid?
-    isbn13 = isbn_13.gsub(/\D/, "").chars.map(&:to_i)
+  def is_isbn_13_valid?(isbn = isbn_13)
+    isbn13 = isbn.gsub(/\D/, "").chars.map(&:to_i)
     return false unless isbn13.length == 13
 
     checksum = isbn13[0..11].map.with_index do |num, index|

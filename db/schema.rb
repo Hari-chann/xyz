@@ -39,7 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_04_142031) do
     t.integer "publication_year", null: false
     t.string "edition"
     t.string "image_url"
-    t.text "description"
     t.bigint "publisher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
