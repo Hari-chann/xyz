@@ -13,8 +13,4 @@ class BookSerializer
     :edition,
     :image_url,
     :author_list
-
-  attribute :publisher_name do |object|
-    object.publisher.name
-  end
 end

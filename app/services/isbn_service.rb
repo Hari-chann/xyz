@@ -1,10 +1,26 @@
-class ConvertIsbnService
+class IsbnService
   def initialize(origin_isbn, target_base)
     @origin_isbn = origin_isbn
     @target_base = target_base.to_i
   end
 
-  def call
+  def validate
+    if @target_base == 10
+      result = is_isbn_10_valid?(@origin_isbn)
+    elsif @target_base == 13
+      result = is_isbn_13_valid?(@origin_isbn)
+    else
+      handle_error("Invalid ISBN")
+    end
+
+    if result
+      handle_response(result)
+    else
+      handle_error("Invalid ISBN")
+    end
+  end
+
+  def convert
     result = nil
 
     if @target_base == 10
@@ -12,9 +28,14 @@ class ConvertIsbnService
     elsif @target_base == 13
       result = convert_isbn_10_to_isbn_13(@origin_isbn)
     else
-      OpenStruct.new({success?: false, payload: nil, errors: "Invalid target base"})
+      handle_error("Invalid target base")
     end
-    handle_response(result)
+
+    if result.nil?
+      return handle_error("Invalid ISBN")
+    else
+      handle_response(result)
+    end
   end
 
   private
@@ -66,7 +87,7 @@ class ConvertIsbnService
     return nil unless is_isbn_13_valid?(isbn)
     isbn13 = isbn.gsub(/\D/, "").chars.map(&:to_i)
 
-    return 400 unless isbn.gsub(/\D/, "").start_with?("978")
+    return nil unless isbn.gsub(/\D/, "").start_with?("978")
     isbn10 = isbn13[3..11]
     checksum = isbn10.map.with_index do |num, index|
       num * (10 - index)
@@ -86,6 +107,7 @@ class ConvertIsbnService
   end
 
   def handle_error(error)
-    OpenStruct.new({success?: false, payload: error, errors: error})
+    OpenStruct.new({success?: false, payload: nil, errors: error})
   end
 end
+

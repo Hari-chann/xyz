@@ -1,11 +1,25 @@
 class Api::V1::BooksController < ApplicationController
-  before_action :set_book, only: [:show]
-
   def show
-    if @book
-      render json: BookSerializer.new(@book).serializable_hash
+    valid = false
+    if params[:isbn_13].length == 10
+      valid = IsbnService.new(params[:isbn_13], 10).validate
+    elsif params[:isbn_13].length == 13
+      valid = IsbnService.new(params[:isbn_13], 13).validate
+    end
+
+    if valid
+      set_book
+      if @book
+        response = {
+          book: BookSerializer.new(@book).serializable_hash[:data],
+          publisher_name: @book.publisher.name
+        }
+        render json: response
+      else
+        render json: {error: "Book not found"}, status: 404
+      end
     else
-      render json: {error: "Book not found"}, status: 404
+      render json: {error: "Invalid ISBN"}, status: 400
     end
   end
 
@@ -13,15 +27,14 @@ class Api::V1::BooksController < ApplicationController
     result = nil
 
     if ["10", "13"].include?(params[:target_base])
-      result = ConvertIsbnService.new(params[:origin_isbn], params[:target_base]).call.payload
+      result = IsbnService.new(params[:origin_isbn], params[:target_base]).convert.payload
     else
       render json: {error: "Invalid base"}, status: 422
     end
 
-    if result == 400
-      render json: {error: "First 3 digits are not 978"}, status: 400
-    elsif result.nil?
-      render json: {error: "Invalid ISBN-13"}, status: 422
+    if result.nil?
+      origin = "1013".gsub(params[:target_base], "")
+      render json: {error: "Invalid ISBN-#{origin}"}, status: 400
     else
       render json: {"isbn_#{params[:target_base]}": result}
     end
@@ -31,7 +44,7 @@ class Api::V1::BooksController < ApplicationController
 
   def set_book
     if params[:isbn_13].length == 10
-      result = ConvertIsbnService.new(params[:isbn_13], 13).call
+      result = IsbnService.new(params[:isbn_13], 13).convert
       @book = (result.success? ? Book.find_by(isbn_13: result.payload) : nil)
     else
       @book = Book.find_by(isbn_13: params[:isbn_13])

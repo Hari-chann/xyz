@@ -68,6 +68,30 @@ This endpoint returns a json object with the following keys:
 - formatted_isbn_13
 - formatted_isbn_10
 
+Sample response:
+```javascript
+{
+  "book": {
+    "id": "2",
+    "type": "book",
+    "attributes": {
+      "title": "Cosmoknights",
+      "isbn_13": "9781603094542",
+      "isbn_10": "1603094547",
+      "formatted_isbn_13": "978-1-603094-54-2",
+      "formatted_isbn_10": "1-603-09454-7",
+      "price": "2000.0",
+      "publication_year": 2019,
+      "edition": "Book 1",
+      "image_url": "/images/cosmoknights.jpg",
+      "author_list": "Kingsley Amis, Kingsley Amis"
+    }
+  },
+  "publisher_name": "Publishers Weekly"
+}
+```
+
+
 ```url
 /api/v1/books/convert_isbn
 ```
@@ -79,27 +103,5 @@ ex: `/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
 
 `origin_isbn` is required and should only contain numbers and have a length of 13 or 10
 
-`target_base` is required and should be either 10 or 13 ()
+`target_base` is required and should be either 10 or 13
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
