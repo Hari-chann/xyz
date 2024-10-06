@@ -4,16 +4,26 @@ class Book < ApplicationRecord
   has_many :authors, through: :book_authors
 
   validates :authors, :title, :isbn_13, :price, :publication_year, presence: true
+  validates :isbn_13, uniqueness: true
   validates :publication_year, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 1000,
     less_than_or_equal_to: Date.today.year
   }
+
   before_save :validate_isbn_13
   before_save :validate_isbn_10, if: -> { isbn_10.present? }
 
   def author_list
     authors.map(&:full_name).join(", ")
+  end
+
+  def formatted_isbn_13
+    isbn_13.gsub(/(\d{3})(\d{1})(\d{6})(\d{2})(\d{1})/, '\1-\2-\3-\4-\5')
+  end
+
+  def formatted_isbn_10
+    isbn_10.gsub(/(\d{1})(\d{3})(\d{5})(\d{1})/, '\1-\2-\3-\4')
   end
 
   def is_isbn_13_valid?(isbn = isbn_13)
@@ -81,16 +91,22 @@ class Book < ApplicationRecord
   private
 
   def validate_isbn_13
-    unless is_isbn_13_valid?
+    if !is_isbn_13_valid?
       errors.add(:isbn_13, "is not a valid ISBN-13")
       throw(:abort)
+    else
+      # format to remove any non-numeric characters
+      self.isbn_13 = isbn_13.gsub(/\D/, "")
     end
   end
 
   def validate_isbn_10
-    unless is_isbn_10_valid?
+    if !is_isbn_10_valid?
       errors.add(:isbn_10, "is not a valid ISBN-10")
       throw(:abort)
+    else
+      # format to remove any non-numeric characters
+      self.isbn_10 = isbn_10.gsub(/[^0-9xX]/, "")
     end
   end
 end

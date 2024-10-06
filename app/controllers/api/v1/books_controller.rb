@@ -1,29 +1,21 @@
 class Api::V1::BooksController < ApplicationController
+  before_action :set_book, only: [:show]
 
   def index
-    books = Book.all
-    render json: books
+    render json: BookSerializer.new(Book.all, {}).serializable_hash
   end
 
   def show
-  end
-
-  def create
-    book = Book.new(book_params)
-    if book.save
-      render json: book
+    if @book
+      render json: BookSerializer.new(@book).serializable_hash
     else
-      render json: {error: "Unable to create book."}, status: 400
+      render json: {error: "Book not found"}, status: 404
     end
   end
 
   private
 
   def set_book
-    @book = Book.find(params[:id])
-  end
-
-  def book_params
-    params.require(:book).permit(:title, :author, :genre, :year_published)
+    @book = Book.find_by(isbn_13: params[:isbn_13])
   end
 end

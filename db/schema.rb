@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_04_142031) do
     t.bigint "publisher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["isbn_13"], name: "index_books_on_isbn_13", unique: true
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 

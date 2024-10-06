@@ -5,19 +5,16 @@ class BookSerializer
 
   attributes :title,
     :isbn_13,
+    :isbn_10,
+    :formatted_isbn_13,
+    :formatted_isbn_10,
     :price,
     :publication_year,
     :edition,
     :image_url,
-    :publisher
+    :author_list
 
-  attributes :authors do |book|
-    book.authors.map do |author|
-      {
-        name: author.name,
-        birth_year: author.birth_year
-      }
-    end
+  attribute :publisher_name do |object|
+    object.publisher.name
   end
-
 end

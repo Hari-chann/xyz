@@ -34,6 +34,7 @@ american_elf = Book.create!(
   price: 1000,
   edition: "Book 2",
   publisher: publishers.first,
+  image_url: "/images/american_elf.jpg",
   authors: [
     authors.first,
     authors.second,
@@ -49,6 +50,7 @@ cosmoknights = Book.create!(
   price: 2000,
   edition: "Book 1",
   publisher: publishers.second,
+  image_url: "/images/cosmoknights.jpg",
   authors: [authors.fourth]
 )
 
@@ -59,6 +61,7 @@ essex_county = Book.create!(
   publication_year: 1990,
   price: 500,
   publisher: publishers.third,
+  image_url: "/images/essex_county.jpg",
   authors: [authors.fourth]
 )
 
@@ -70,6 +73,7 @@ hey_mister_vol_1 = Book.create!(
   price: 1200,
   edition: "After School Special",
   publisher: publishers.third,
+  image_url: "/images/hey_mister.jpg",
   authors: [
     authors[1],
     authors[4],
@@ -84,6 +88,7 @@ underwater_welder = Book.create!(
   publication_year: 2022,
   price: 3000,
   publisher: publishers.last,
+  image_url: "/images/underwater_welder.jpg",
   authors: [authors.last]
 )
 

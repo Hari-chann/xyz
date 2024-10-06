@@ -79,6 +79,9 @@ const Topbar = (props) => {
               base: "w-24 search-input",
             }}
             placeholder="Search"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
             startContent={
               <img
                 src="/images/Icon feather-search.svg"
