@@ -31,6 +31,24 @@ class BookTest < ActiveSupport::TestCase
     assert_not book.valid?
   end
 
+  test "should be invalid with future publication_year" do
+    @book.publication_year = Date.today.year + 1
+    assert_not @book.valid?
+    assert_includes @book.errors[:publication_year], "must be less than or equal to #{Date.today.year}"
+  end
+
+  test "should be invalid with very old publication_year" do
+    @book.publication_year = 999
+    assert_not @book.valid?
+    assert_includes @book.errors[:publication_year], "must be greater than or equal to 1000"
+  end
+
+  test "should be invalid with non-integer publication_year" do
+    @book.publication_year = "two thousand"
+    assert_not @book.valid?
+    assert_includes @book.errors[:publication_year], "is not a number"
+  end
+
   test "should be invalid without a publisher" do
     book = build(:book, publisher: nil)
     assert_not book.valid?

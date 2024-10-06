@@ -62,7 +62,7 @@ essex_county = Book.create!(
   authors: [authors.fourth]
 )
 
-hey_mister_vol_1 = Book.new(
+hey_mister_vol_1 = Book.create!(
   title: "Hey, Mister (Vol 1)",
   isbn_13: "978-1-891830-02-0",
   isbn_10: "1-891-83002-3",
@@ -76,13 +76,6 @@ hey_mister_vol_1 = Book.new(
     authors[5]
   ]
 )
-
-if hey_mister_vol_1.save
-  puts "Book saved successfully."
-else
-  puts "hey_mister_vol_1: errors"
-  puts hey_mister_vol_1.errors.full_messages
-end
 
 underwater_welder = Book.create!(
   title: "The Underwater Welder",

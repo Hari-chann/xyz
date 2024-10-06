@@ -4,6 +4,11 @@ class Book < ApplicationRecord
   has_many :authors, through: :book_authors
 
   validates :authors, :title, :isbn_13, :price, :publication_year, presence: true
+  validates :publication_year, numericality: {
+    only_integer: true,
+    greater_than_or_equal_to: 1000,
+    less_than_or_equal_to: Date.today.year
+  }
   before_save :validate_isbn_13
   before_save :validate_isbn_10, if: -> { isbn_10.present? }
 
