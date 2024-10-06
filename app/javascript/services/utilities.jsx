@@ -1,5 +1,5 @@
 const isValidIsbn13 = (isbn) => {
-  var set = isbn.replace(/\D/g, "").split("").map(Number);
+  var set = isbn.replaceAll(/\D/g, "").split("").map(Number);
   if (set.length !== 13) {
     return false;
   }
