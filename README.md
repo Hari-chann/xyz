@@ -1,6 +1,6 @@
 # XYZ Bookstore
 
-## Setup
+## Ubuntu environment setup
 This project is created using the following versions:
 - Ruby 3.2.0
 - Rails 7.0.8
