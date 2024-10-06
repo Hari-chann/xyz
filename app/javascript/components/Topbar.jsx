@@ -111,7 +111,7 @@ const Topbar = (props) => {
           style={{ gap: "2rem" }}
         >
           <NavbarItem>
-            <Link className="topbar-links" color="foreground" href="#">
+            <Link className="topbar-links" color="foreground" href="/">
               Home
             </Link>
           </NavbarItem>
@@ -192,7 +192,12 @@ const Topbar = (props) => {
       <NavbarMenu id="backdrop-blur-fix">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" color="foreground" href="#" size="lg">
+            <Link
+              className="w-full"
+              color="foreground"
+              href={item == "Home" ? "/" : "#"}
+              size="lg"
+            >
               {item}
             </Link>
           </NavbarMenuItem>

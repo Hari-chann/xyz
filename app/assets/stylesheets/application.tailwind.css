@@ -348,6 +348,10 @@ header {
   margin-bottom: 0.5rem;
 }
 
+#searchPageMainDiv {
+  margin-block: 4rem;
+  margin-inline: 9rem;
+}
 
 /*********** SearchResultPage.jsx *********** */
 
@@ -375,6 +379,23 @@ header {
   }
   #grid-link-stack {
     gap: 2.5vw;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .sm-hidden {
+    display: none !important;
+  }
+  .sm-flex-show {
+    display: flex !important;
+  }
+  .sm-show {
+    display: block !important;
+  }
+  .img-search-result {
+    margin-right: 3rem !important;
+  }
+  #searchPageMainDiv{
+    margin-inline: 4rem;
   }
 }
 
