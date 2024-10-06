@@ -10,7 +10,7 @@ const isValidIsbn13 = (isbn) => {
   }, 0);
 
   const checkDigit = 10 - (checksum % 10);
-  return checkDigit == lastDigit;
+  return ((checkDigit > 9) ? 0 : checkDigit) == lastDigit;
 };
 
 const isValidIsbn10 = (isbn) => {

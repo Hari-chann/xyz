@@ -33,7 +33,12 @@ american_elf = Book.create!(
   publication_year: 2004,
   price: 1000,
   edition: "Book 2",
-  publisher: publishers.first
+  publisher: publishers.first,
+  authors: [
+    authors.first,
+    authors.second,
+    authors.third
+  ]
 )
 
 cosmoknights = Book.create!(
@@ -43,7 +48,8 @@ cosmoknights = Book.create!(
   publication_year: 2019,
   price: 2000,
   edition: "Book 1",
-  publisher: publishers.second
+  publisher: publishers.second,
+  authors: [authors.fourth]
 )
 
 essex_county = Book.create!(
@@ -52,18 +58,31 @@ essex_county = Book.create!(
   isbn_10: "1-603-09038-X",
   publication_year: 1990,
   price: 500,
-  publisher: publishers.third
+  publisher: publishers.third,
+  authors: [authors.fourth]
 )
 
-hey_mister_vol_1 = Book.create!(
+hey_mister_vol_1 = Book.new(
   title: "Hey, Mister (Vol 1)",
   isbn_13: "978-1-891830-02-0",
   isbn_10: "1-891-83002-3",
   publication_year: 2000,
   price: 1200,
   edition: "After School Special",
-  publisher: publishers.third
+  publisher: publishers.third,
+  authors: [
+    authors[1],
+    authors[4],
+    authors[5]
+  ]
 )
+
+if hey_mister_vol_1.save
+  puts "Book saved successfully."
+else
+  puts "hey_mister_vol_1: errors"
+  puts hey_mister_vol_1.errors.full_messages
+end
 
 underwater_welder = Book.create!(
   title: "The Underwater Welder",
@@ -71,20 +90,36 @@ underwater_welder = Book.create!(
   isbn_10: "1-603-09398-2",
   publication_year: 2022,
   price: 3000,
-  publisher: publishers.last
+  publisher: publishers.last,
+  authors: [authors.last]
 )
 
 # Book Authors
-american_elf.authors << [
-  authors.first,
-  authors.second,
-  authors.third
-]
-cosmoknights.authors << authors.fourth
-essex_county.authors << authors.fourth
-hey_mister_vol_1.authors << [
-  authors[1],
-  authors[4],
-  authors[5]
-]
-underwater_welder.authors << authors.last
+BookAuthor.create!([
+  {book: american_elf, author: authors.first},
+  {book: american_elf, author: authors.second},
+  {book: american_elf, author: authors.third}
+])
+BookAuthor.create!(book: cosmoknights, author: authors.fourth)
+BookAuthor.create!(book: essex_county, author: authors.fourth)
+BookAuthor.create!([
+  {book: hey_mister_vol_1, author: authors[1]},
+  {book: hey_mister_vol_1, author: authors[4]},
+  {book: hey_mister_vol_1, author: authors[5]}
+])
+BookAuthor.create!(book: underwater_welder, author: authors.last)
+
+# Book Authors
+# american_elf.authors << [
+#   authors.first,
+#   authors.second,
+#   authors.third
+# ]
+# cosmoknights.authors << authors.fourth
+# essex_county.authors << authors.fourth
+# hey_mister_vol_1.authors << [
+#   authors[1],
+#   authors[4],
+#   authors[5]
+# ]
+# underwater_welder.authors << authors.last

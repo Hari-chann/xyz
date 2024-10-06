@@ -16,7 +16,8 @@ import {
 import { Search, Globe } from "react-feather";
 
 const Topbar = (props) => {
-  const { searchInput, setSearchInput, isIsbnInvalid, errorMsg } = props;
+  const { searchInput, setSearchInput, handleSearch, isIsbnInvalid, errorMsg } =
+    props;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -72,8 +73,9 @@ const Topbar = (props) => {
             onValueChange={setSearchInput}
             classNames={{
               input: "bg-transparent",
+              mainWrapper: `${isIsbnInvalid ? "margin-top-2" : ""}`,
               innerWrapper: "border-primary-100",
-              inputWrapper: "search-input-border-color",
+              inputWrapper: "search-input-border-color min-right-padding",
               base: "w-24 search-input",
             }}
             placeholder="Search"
@@ -83,8 +85,21 @@ const Topbar = (props) => {
                 style={{ minWidth: "1.1rem" }}
               />
             }
+            endContent={
+              searchInput.length > 0 && (
+                <Button
+                  size="sm"
+                  radius="full"
+                  color="primary"
+                  variant="shadow"
+                  style={{ padding: "0.5rem 1rem" }}
+                  onClick={handleSearch}
+                >
+                  Search
+                </Button>
+              )
+            }
           />
-          {/* <NavbarContent></NavbarContent> */}
         </NavbarItem>
 
         <NavbarContent

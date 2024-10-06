@@ -64,10 +64,11 @@ const Footer = () => {
                 gap: "1rem",
                 gridColumn: col,
               }}
+              key={`parent-header-${index}`}
             >
               <h4 className="h4-footer">{header.title}</h4>
               {header.items.map((item, index) => (
-                <Link key={index} href="#" style={{ color: "dimgray" }}>
+                <Link key={`header-${index}`} href="#" style={{ color: "dimgray" }}>
                   {item}
                 </Link>
               ))}
@@ -87,7 +88,7 @@ const Footer = () => {
           {socialItems.map((item, index) => {
             const src = `/images/${item}`;
             return (
-              <Avatar key={index} src={src} style={{ marginRight: "1.5rem" }} />
+              <Avatar key={`avatar-${index}`} src={src} style={{ marginRight: "1.5rem" }} />
             );
           })}
         </div>

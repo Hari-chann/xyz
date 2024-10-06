@@ -70,6 +70,14 @@ header {
   margin-top: 5rem;
 }
 
+.min-right-padding {
+  padding-right: 0.1rem !important;
+}
+
+.margin-top-2 {
+  margin-top: 2rem;
+}
+
 /*********** Topbar.jsx *********** */
 
 /*********** MainAbout.jsx *********** */

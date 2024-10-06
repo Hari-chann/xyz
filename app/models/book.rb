@@ -7,6 +7,10 @@ class Book < ApplicationRecord
   before_save :validate_isbn_13
   before_save :validate_isbn_10, if: -> { isbn_10.present? }
 
+  def author_list
+    authors.map(&:full_name).join(", ")
+  end
+
   def is_isbn_13_valid?(isbn = isbn_13)
     isbn13 = isbn.gsub(/\D/, "").chars.map(&:to_i)
     return false unless isbn13.length == 13
@@ -17,7 +21,7 @@ class Book < ApplicationRecord
     end.sum
 
     check_digit = 10 - (checksum % 10)
-    check_digit == isbn13.last
+    ((check_digit > 9) ? 0 : check_digit) == isbn13.last
   end
 
   def is_isbn_10_valid?(isbn = isbn_10)
