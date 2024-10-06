@@ -43,6 +43,7 @@ yarn test
 ex: `/api/v1/books/9781603090575`
 
 `isbn_13` is required and should only contain numbers and have a length of 13
+
 On react, search input removes non-numeric characters and only allows 13 or 10 characters
 If 10 characters are entered, it will be converted to ISBN-13 to satisfy:
 ```ruby
