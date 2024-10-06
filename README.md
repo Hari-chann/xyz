@@ -23,12 +23,14 @@ bin/dev
 
 ## Running the test suite
 For the test suite, we are using minitest
+
 `/test` contains the tests for the models and controllers
 ```bash
 rails test
 ```
 
 For react components, we are using jest (just for utilities.jsx )
+
 `/app/javascript/services/*.test.js` contains the tests for the models and controllers
 ```bash
 yarn test
@@ -39,6 +41,7 @@ yarn test
 /api/v1/books/:isbn_13
 ```
 ex: `/api/v1/books/9781603090575`
+
 `isbn_13` is required and should only contain numbers and have a length of 13
 On react, search input removes non-numeric characters and only allows 13 or 10 characters
 If 10 characters are entered, it will be converted to ISBN-13 to satisfy:
@@ -70,8 +73,11 @@ This endpoint returns a json object with the following keys:
 Required keys:
 - isbn
 - to_base
+
 ex: `/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
+
 `origin_isbn` is required and should only contain numbers and have a length of 13 or 10
+
 `target_base` is required and should be either 10 or 13 ()
 
 This README would normally document whatever steps are necessary to get the
