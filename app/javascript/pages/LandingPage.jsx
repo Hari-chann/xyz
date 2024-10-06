@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { isValidIsbn13, isValidIsbn10 } from "../services/utilities";
+import toast, { Toaster } from 'react-hot-toast';
 
 import Topbar from "../components/Topbar";
 import MainAbout from "../components/MainAbout";
@@ -40,6 +41,7 @@ const LandingPage = () => {
     } else {
       setIsIsbnInvalid(true);
       setErrorMsg("Invalid ISBN format");
+      toast.error('Invalid ISBN format');
       return;
     }
     /*
@@ -91,6 +93,7 @@ const LandingPage = () => {
       <Profile />
       <FAQ />
       <Footer />
+      <Toaster />
     </>
   );
 };
