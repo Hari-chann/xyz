@@ -24,14 +24,14 @@ bin/dev
 ## Running the test suite
 For the test suite, we are using minitest
 
-`/test` contains the tests for the models and controllers
+`/test` contains the tests for the models, controllers and services
 ```bash
 rails test
 ```
 
 For react components, we are using jest (just for utilities.jsx )
 
-`/app/javascript/services/*.test.js` contains the tests for the models and controllers
+`/app/javascript/services/*.test.js`
 ```bash
 yarn test
 ```
