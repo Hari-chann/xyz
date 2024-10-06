@@ -15,7 +15,9 @@ import {
 
 import { Search, Globe } from "react-feather";
 
-const Topbar = () => {
+const Topbar = (props) => {
+  const { searchInput, setSearchInput, isIsbnInvalid, errorMsg } = props;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
@@ -64,6 +66,10 @@ const Topbar = () => {
             radius="full"
             variant="bordered"
             fullWidth={false}
+            value={searchInput}
+            isInvalid={isIsbnInvalid}
+            errorMessage={errorMsg}
+            onValueChange={setSearchInput}
             classNames={{
               input: "bg-transparent",
               innerWrapper: "border-primary-100",

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// import {} from "../components/utilities";
+
 import Topbar from "../components/Topbar";
 import MainAbout from "../components/MainAbout";
 import ExploreTopSection from "../components/ExploreTopSection";
@@ -10,6 +12,10 @@ import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 
 const LandingPage = () => {
+  const [searchInput, setSearchInput] = useState("");
+  const [isIsbnInvalid, setIsIsbnInvalid] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
   return (
     <>
       <div id="gradient-background" className="flex-center">
@@ -26,7 +32,12 @@ const LandingPage = () => {
         </p>
         <img src="/images/26.svg" />
       </div>
-      <Topbar />
+      <Topbar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        isIsbnInvalid={isIsbnInvalid}
+        errorMsg={errorMsg}
+      />
       <MainAbout />
       <ExploreTopSection />
       <ExploreBottomSection />
