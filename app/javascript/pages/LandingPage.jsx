@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { isValidIsbn13, isValidIsbn10 } from "../services/utilities";
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -12,6 +13,8 @@ import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   const [searchInput, setSearchInput] = useState("");
   const [isIsbnInvalid, setIsIsbnInvalid] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -57,7 +60,7 @@ const LandingPage = () => {
       //   setErrorMsg("Book not found");
       //   return;
       // }
-      // window.location = `/book/${filteredSearchInput}`;
+      navigate(`/book/${filteredSearchInput}`);
     } catch (error) {
       setIsIsbnInvalid(true);
       setErrorMsg("Book not found");

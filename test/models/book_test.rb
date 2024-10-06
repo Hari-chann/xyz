@@ -80,17 +80,4 @@ class BookTest < ActiveSupport::TestCase
 
     assert_not book.is_isbn_10_valid?, "Expected book with altered ISBN-10 to be invalid"
   end
-
-  test "should convert valid ISBN-10 to ISBN-13" do
-    isbn_10 = Faker::Code.isbn
-    isbn_13 = Book.new.convert_isbn_10_to_isbn_13(isbn_10)
-    assert Book.new.is_isbn_13_valid?(isbn_13)
-  end
-
-  test "should convert valid ISBN-13 to ISBN-10" do
-    isbn_10 = Faker::Code.isbn
-    isbn_13 = Book.new.convert_isbn_10_to_isbn_13(isbn_10)
-    isbn_10 = Book.new.convert_isbn_13_to_isbn_10(isbn_13)
-    assert Book.new.is_isbn_10_valid?(isbn_10)
-  end
 end

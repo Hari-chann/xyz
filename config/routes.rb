@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root 'pages#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "pages#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :books, param: :isbn_13, only: [:index, :show]
+      resources :books, param: :isbn_13, only: [:show] do
+        collection do
+          get :convert_isbn
+        end
+      end
     end
   end
 end
