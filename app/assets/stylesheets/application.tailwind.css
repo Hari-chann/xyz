@@ -319,6 +319,38 @@ header {
 
 /*********** Footer.jsx *********** */
 
+/*********** SearchResultPage.jsx *********** */
+.search-header {
+  color: #151c55;
+  margin-bottom: 2.5rem;
+  font-size: 2.2rem;
+}
+
+.img-search-result {
+  width: auto;
+  height: 25rem;
+  margin-right: 5rem;
+}
+
+.search-title {
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.search-detail {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.div-flex {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+
+/*********** SearchResultPage.jsx *********** */
+
 @media screen and (max-width: 1560px) {
   .search-input {
     margin-inline: 0;

@@ -1,23 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { isValidIsbn13, isValidIsbn10 } from "../services/utilities";
 import toast, { Toaster } from "react-hot-toast";
 
 import Topbar from "../components/Topbar";
-import MainAbout from "../components/MainAbout";
-import ExploreTopSection from "../components/ExploreTopSection";
-import ExploreBottomSection from "../components/ExploreBottomSection";
-import Profile from "../components/Profile";
-import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
+import BookResource from "../components/BookResource";
 
-const LandingPage = () => {
+const SearchResultPage = () => {
+  const { isbn } = useParams();
   const navigate = useNavigate();
 
+  const [book, setBook] = useState(null);
+  const [searchErrorCode, setSearchErrorCode] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const [isIsbnInvalid, setIsIsbnInvalid] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    const fetchBookData = async () => {
+      try {
+        const response = await axios.get(`/api/v1/books/${isbn}`);
+
+        if (response?.data?.book) {
+          setBook(response?.data);
+        }
+      } catch (error) {
+        setIsIsbnInvalid(true);
+        setErrorMsg(error);
+        toast.error(error);
+      }
+    };
+    if (isbn) {
+      fetchBookData();
+    }
+  }, [isbn]);
 
   useEffect(() => {
     if (searchInput.length === 0) {
@@ -89,15 +108,11 @@ const LandingPage = () => {
         isIsbnInvalid={isIsbnInvalid}
         errorMsg={errorMsg}
       />
-      <MainAbout />
-      <ExploreTopSection />
-      <ExploreBottomSection />
-      <Profile />
-      <FAQ />
+      {book && <BookResource book={book} searchErrorCode={searchErrorCode} />}
       <Footer />
       <Toaster />
     </>
   );
 };
 
-export default LandingPage;
+export default SearchResultPage;
