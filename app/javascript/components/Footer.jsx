@@ -50,6 +50,9 @@ const Footer = () => {
               </Button>
             }
           />
+          <div id="chat-avatar" className="inline-stack flex-center xs-show">
+            <Avatar isBordered color="primary" src="/images/Path 335.svg" />
+          </div>
         </div>
         <div
           className="md-hidden"
@@ -68,14 +71,18 @@ const Footer = () => {
             >
               <h4 className="h4-footer">{header.title}</h4>
               {header.items.map((item, index) => (
-                <Link key={`header-${index}`} href="#" style={{ color: "dimgray" }}>
+                <Link
+                  key={`header-${index}`}
+                  href="#"
+                  style={{ color: "dimgray" }}
+                >
                   {item}
                 </Link>
               ))}
             </div>
           );
         })}
-        <div id="chat-avatar" className="inline-stack flex-center">
+        <div id="chat-avatar" className="inline-stack flex-center xs-hidden">
           <Avatar isBordered color="primary" src="/images/Path 335.svg" />
         </div>
       </div>
@@ -88,7 +95,11 @@ const Footer = () => {
           {socialItems.map((item, index) => {
             const src = `/images/${item}`;
             return (
-              <Avatar key={`avatar-${index}`} src={src} style={{ marginRight: "1.5rem" }} />
+              <Avatar
+                key={`avatar-${index}`}
+                src={src}
+                style={{ marginRight: "1.5rem" }}
+              />
             );
           })}
         </div>

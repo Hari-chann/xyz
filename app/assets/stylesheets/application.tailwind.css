@@ -410,6 +410,17 @@ header {
   }
 }
 
+@media screen and (max-width: 890px) {
+  .xs-hidden {
+    display: none !important;
+  }
+  .xs-show{
+    display: flex !important;
+    marign-inline: auto;
+    margin-top: 2rem;
+  }
+}
+
 @media screen and (max-width: 800px) {
   #trusted-h4 {
     font-size: 4vw;
