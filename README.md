@@ -8,6 +8,8 @@ This project is created using the following versions:
 - Yarn 1.22.22
 - Postgres 16.4
 
+Set username and password in `config/database.yml` to your postgres username and password
+
 Run the following commands to setup the project
 The 5 sample books are already seeded in the database
 ```bash
