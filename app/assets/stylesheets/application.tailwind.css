@@ -278,7 +278,6 @@ header {
 #chat-avatar {
   grid-column: 6;
   width: 7rem;
-  margin: unset;
   align-items: end !important;
 }
 
@@ -394,7 +393,7 @@ header {
   .img-search-result {
     margin-right: 3rem !important;
   }
-  #searchPageMainDiv{
+  #searchPageMainDiv {
     margin-inline: 4rem;
   }
 }
@@ -414,11 +413,12 @@ header {
   .xs-hidden {
     display: none !important;
   }
-  .xs-show{
+  .xs-show {
     display: flex !important;
-    marign-inline: auto;
+    margin-inline: auto !important;
     margin-top: 2rem;
   }
+  
 }
 
 @media screen and (max-width: 800px) {

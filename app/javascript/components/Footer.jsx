@@ -50,7 +50,10 @@ const Footer = () => {
               </Button>
             }
           />
-          <div id="chat-avatar" className="inline-stack flex-center xs-show">
+          <div
+            id="chat-avatar"
+            className="hidden xs-show "
+          >
             <Avatar isBordered color="primary" src="/images/Path 335.svg" />
           </div>
         </div>
