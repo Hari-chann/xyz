@@ -40,9 +40,9 @@ yarn test
 
 ## Api Endpoints
 ```url
-/api/v1/books/:isbn_13
+localhost:3001/api/v1/books/:isbn_13
 ```
-ex: `/api/v1/books/9781603090575`
+ex: `localhost:3001/api/v1/books/9781603090575`
 
 `isbn_13` is required and should only contain numbers and have a length of 13
 
@@ -94,13 +94,13 @@ Sample response:
 ```
 ## ISBN Conversion Endpoint
 ```url
-/api/v1/books/convert_isbn
+localhost:3001/api/v1/books/convert_isbn
 ```
 Required keys:
 - isbn
 - to_base
 
-ex: `/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
+ex: `localhost:3001/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
 
 `origin_isbn` is required and should only contain numbers and have a length of 13 or 10
 
