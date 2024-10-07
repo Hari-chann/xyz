@@ -13,7 +13,7 @@ const BookResource = (props) => {
             color: "#6160f6",
           }}
         >
-          {book.book.attributes.edition}
+          {book.book.attributes.edition || "N/A"}
         </h4>
       </div>
 
@@ -37,7 +37,7 @@ const BookResource = (props) => {
             color: "#6160f6",
           }}
         >
-          {book.book.attributes.isbn_13}
+          {book.book.attributes.formatted_isbn_13}
         </h4>
       </div>
 
