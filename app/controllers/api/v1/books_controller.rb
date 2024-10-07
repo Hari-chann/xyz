@@ -1,13 +1,13 @@
 class Api::V1::BooksController < ApplicationController
   def show
-    valid = false
+    result = OpenStruct.new({success?: false, payload: nil, errors: ""})
     if params[:isbn_13].length == 10
-      valid = IsbnService.new(params[:isbn_13], 10).validate
+      result = IsbnService.new(params[:isbn_13], 10).validate
     elsif params[:isbn_13].length == 13
-      valid = IsbnService.new(params[:isbn_13], 13).validate
+      result = IsbnService.new(params[:isbn_13], 13).validate
     end
 
-    if valid
+    if result.success?
       set_book
       if @book
         response = {
@@ -24,19 +24,19 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def convert_isbn
-    result = nil
+    result = OpenStruct.new({success?: false, payload: nil, errors: ""})
 
     if ["10", "13"].include?(params[:target_base])
-      result = IsbnService.new(params[:origin_isbn], params[:target_base]).convert.payload
+      result = IsbnService.new(params[:origin_isbn], params[:target_base]).convert
+
+      if result.success?
+        render json: {"isbn_#{params[:target_base]}": result.payload}
+      else
+        origin = "1013".gsub(params[:target_base], "")
+        render json: {error: "Invalid ISBN-#{origin}"}, status: 400
+      end
     else
       render json: {error: "Invalid base"}, status: 422
-    end
-
-    if result.nil?
-      origin = "1013".gsub(params[:target_base], "")
-      render json: {error: "Invalid ISBN-#{origin}"}, status: 400
-    else
-      render json: {"isbn_#{params[:target_base]}": result}
     end
   end
 
@@ -45,7 +45,7 @@ class Api::V1::BooksController < ApplicationController
   def set_book
     if params[:isbn_13].length == 10
       result = IsbnService.new(params[:isbn_13], 13).convert
-      @book = (result.success? ? Book.find_by(isbn_13: result.payload) : nil)
+      @book = (result.success? ? Book.find_by(isbn_13: result.payload) : false)
     else
       @book = Book.find_by(isbn_13: params[:isbn_13])
     end

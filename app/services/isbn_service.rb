@@ -32,7 +32,7 @@ class IsbnService
     end
 
     if result.nil?
-      return handle_error("Invalid ISBN")
+      handle_error("Invalid ISBN")
     else
       handle_response(result)
     end
@@ -107,7 +107,6 @@ class IsbnService
   end
 
   def handle_error(error)
-    OpenStruct.new({success?: false, payload: nil, errors: error})
+    OpenStruct.new({success?: false, payload: 400, errors: error})
   end
 end
-
