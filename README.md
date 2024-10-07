@@ -8,10 +8,11 @@ This project is created using the following versions:
 - Yarn 1.22.22
 - Postgres 16.4
 
-Set username and password in `config/database.yml` to your postgres username and password
+Set username and password in `config/database.yml` to your postgres username and password.
 
-Run the following commands to setup the project
-The 5 sample books are already seeded in the database
+Run the following commands to setup the project.
+
+The 5 sample books are already seeded in the database.
 ```bash
 bundle install
 yarn install
@@ -24,14 +25,14 @@ bin/dev
 ```
 
 ## Running the test suite
-For the test suite, we are using minitest
+For the test suite, we are using minitest.
 
-`/test` contains the tests for the models, controllers and services
+`/test` contains the tests for the models, controllers and services.
 ```bash
 rails test
 ```
 
-For react components, we are using jest (just for utilities.jsx )
+For react components, we are using jest (just for utilities.jsx ).
 
 `/app/javascript/services/*.test.js`
 ```bash
@@ -44,7 +45,7 @@ localhost:3001/api/v1/books/:isbn_13
 ```
 ex: `localhost:3001/api/v1/books/9781603090575`
 
-`isbn_13` is required and should only contain numbers and have a length of 13
+`isbn_13` is required and should only contain numbers and have a length of 13.
 
 On react, search input removes non-numeric characters and only allows 13 or 10 characters.
 If 10 characters are entered, it will be converted to ISBN-13 to satisfy:
@@ -102,7 +103,7 @@ Required keys:
 
 ex: `localhost:3001/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
 
-`origin_isbn` is required and should only contain numbers and have a length of 13 or 10
+`origin_isbn` is required and should only contain numbers and have a length of 13 or 10.
 
 `target_base` is required and should be either 10 or 13 (set to which base to convert the origin_isbn)
 
