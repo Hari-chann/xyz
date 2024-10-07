@@ -45,6 +45,40 @@ const SearchResultPage = () => {
     }
   }, [searchInput]);
 
+  const handleErrorResponse = (error) => {
+    if (error.response) {
+      const status = error.response.status;
+
+      if (status === 400) {
+        setErrorMsg("Invalid ISBN format.");
+        toast.error("Invalid ISBN format.");
+      } else if (status === 404) {
+        setErrorMsg("Book not found.");
+        toast.error("Book not found.");
+      } else {
+        setErrorMsg(
+          `Error ${status}: ${
+            error.response.data.error || "An unexpected error occurred"
+          }`
+        );
+        toast.error(
+          `Error ${status}: ${
+            error.response.data.error || "An unexpected error occurred"
+          }`
+        );
+      }
+    } else if (error.request) {
+      msg = "No response from server. Please try again later.";
+      setErrorMsg(msg);
+      toast.error(msg);
+    } else {
+      msg = "An error occurred. Please try again.";
+      setErrorMsg(msg);
+      toast.error(msg);
+    }
+    setIsIsbnInvalid(true);
+  };
+
   const handleSearch = async () => {
     var filteredSearchInput = searchInput
       .replaceAll(/\s/g, "")
@@ -80,8 +114,7 @@ const SearchResultPage = () => {
         navigate(`/books/${book?.attributes?.isbn_13}`);
       }
     } catch (error) {
-      setIsIsbnInvalid(true);
-      setErrorMsg(error);
+      handleErrorResponse(error);
     }
   };
 
