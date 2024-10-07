@@ -90,8 +90,7 @@ Sample response:
   "publisher_name": "Publishers Weekly"
 }
 ```
-
-
+## ISBN Conversion Endpoint
 ```url
 /api/v1/books/convert_isbn
 ```
@@ -103,5 +102,6 @@ ex: `/api/v1/books/convert_isbn?origin_isbn=9781603090575&target_base=10`
 
 `origin_isbn` is required and should only contain numbers and have a length of 13 or 10
 
-`target_base` is required and should be either 10 or 13
+`target_base` is required and should be either 10 or 13 (set to which base to convert the origin_isbn)
+
 
